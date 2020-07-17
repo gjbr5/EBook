@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Home</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css') }}"/>
+</head>
+<body>
+  <div>
+    Select Comic Type
+  </div>
+  <div>
+    <a href="{{ url_for('comic', comic_type='manga') }}">
+      <button class="explore" style="background-image: url('{{ url_for('static', filename='logo/hitomi.png') }}')">
+        Manga
+        <span class="icon-right"></span>
+        <span class="icon-right after"></span>
+      </button>
+    </a>
+  </div>
+  <div>
+    <a href="{{ url_for('comic', comic_type='manamoa') }}">
+      <button class="explore" style="background-image: url('{{ url_for('static', filename='logo/manamoa.png') }}')">
+        Manamoa
+        <span class="icon-right"></span>
+        <span class="icon-right after"></span>
+      </button>
+    </a>
+  </div>
+  <div>
+    <a href="{{ url_for('comic', comic_type='webtoon') }}">
+      <button class="explore" style="background-image: url('{{ url_for('static', filename='logo/naverwebtoon.png') }}')">
+        Webtoon
+        <span class="icon-right"></span>
+        <span class="icon-right after"></span>
+      </button>
+    </a>
+  </div>
+</body>
+</html>

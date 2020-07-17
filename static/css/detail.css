@@ -1,0 +1,23 @@
+#info {
+    display: flex;
+    flex-direction: row;
+}
+
+#episodes {
+    list-style: none;
+    padding: 0;
+}
+
+.episode {
+    border: 1px solid;
+    border-radius: .25rem;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    padding: 10px 20px;
+}
+
+.episode a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 1.5em;
+}

@@ -1,0 +1,38 @@
+.pager {
+  font-size: 0;
+  text-align: center;
+  padding: 0;
+}
+.pager__item {
+  display: inline-block;
+  vertical-align: center;
+  font-size: 1.125rem;
+  font-weight: bold;
+}
+.pager__item.active .pager__link {
+  background-color: #ffb74d;
+  border-color: #ffb74d;
+  color: #fff;
+  text-decoration: none;
+}
+
+.pager__link {
+  position: relative;
+  border-radius: 4px;
+  display: block;
+  text-align: center;
+  width: 2.625rem;
+  height: 2.625rem;
+  line-height: 2.625rem;
+  margin-left: -1px;
+  color: #2f3640;
+  text-decoration: none;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+.pager__link:hover, .pager__link:focus, .pager__link:active {
+  background-color: #ffb74d;
+  border-color: #ffb74d;
+  color: #fff;
+  text-decoration: none;
+}

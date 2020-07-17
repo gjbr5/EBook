@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{episode_name}}</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/viewer.css') }}"/>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='lightgallery/css/lightgallery.css') }}"/>
+  <script type="text/javascript" src="{{ url_for('static',filename='lightgallery/js/lightgallery.min.js') }}"></script>
+</head>
+<body>
+  <div id="content">
+{% for img in imgs %}
+    <a href="{{ url_for('comic_img', comic_type=comic_type, id=id, episode=episode, img_name=img) }}">
+        <img src="{{ url_for('comic_img', comic_type=comic_type, id=id, episode=episode, img_name=img) }}" class="content-img"/>
+    </a>
+{% endfor %}
+  </div>
+  <div id="episode-control">
+{% if episode > 1 %}
+    <a href="{{ url_for('view_cartoon', comic_type=comic_type, id=id, episode=episode - 1) }}" id="prev">이전화</a>
+{% endif %}
+{% if not is_last %}
+    <a href="{{ url_for('view_cartoon', comic_type=comic_type, id=id, episode=episode + 1) }}" id="next">다음화</a>
+{% endif %}
+    <a href="{{ url_for('comic_detail', comic_type=comic_type, id=id) }}" id="list">목록</a>
+  </div>
+<script>
+element = document.getElementById('content');
+element.addEventListener('onAfterSlide', function(event) {
+{% if episode > 1 %}
+    if (event.detail.prevIndex == 0 && event.detail.index > 1)
+        location.href = document.getElementById('prev').getAttribute('href');
+{% endif %}
+{% if not is_last %}
+    if (event.detail.prevIndex > 0 && event.detail.index == 0)
+        location.href = document.getElementById('next').getAttribute('href');
+{% endif %}
+});
+lightGallery(element, {hideBarsDelay:1000, download:false});
+</script>
+</body>
+</html>

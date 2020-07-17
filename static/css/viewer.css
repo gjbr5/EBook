@@ -1,0 +1,24 @@
+#content {
+    text-align: center;
+}
+
+.content-img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: auto;
+}
+
+#episode-control {
+    margin-top: 10px;
+    text-align: center;
+}
+
+#episode-control a {
+    text-decoration: none;
+    border: 1px solid #000;
+    color: #fff;
+    background: #000;
+    font-size: 2em;    
+}

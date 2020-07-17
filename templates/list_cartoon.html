@@ -1,0 +1,19 @@
+{% extends "list.html" %}
+{% block content %}
+{% for comic in comic_list %}
+<div class="container">
+  <a href="{{ url_for('comic_detail', comic_type=comic_type, id=comic['id']) }}" class="thumbnail">
+    <img src="{{ url_for('thumbnail', comic_type=comic_type, id=comic['id']) }}"/>
+  </a>
+  <div class="metadata">
+    <div class="title"><a href="{{ url_for('comic_detail', comic_type=comic_type, id=comic['id']) }}">
+      <h3>{{ comic['title'] }}</h3>
+    </a></div>
+    <table>
+      <tr><td>작가:</td><td>{{ comic['author'] }}</td></tr>
+      <tr><td>번호:</td><td>{{ comic['id'] }}</td></tr>
+    </table>
+  </div>
+</div>
+{% endfor %}
+{% endblock %}

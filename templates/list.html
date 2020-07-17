@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{ comic_type }} List</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/list.css') }}"/>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/pagination.css') }}"/>
+</head>
+<body>
+{% block content %}{% endblock %}
+<footer>
+  <nav>
+    <ul class="pager">
+{% if page > 1 %}
+      <li class="pager__item"><a class="pager__link" href="{{url_for('comic_list', comic_type=comic_type, page=page - 1)}}"><</a></li>
+{% endif %}
+{% for p in page_list %}
+      <li class="pager__item{%if p == page%} active{%endif%}">
+        <a class="pager__link" href="{{url_for('comic_list', comic_type=comic_type, page=p)}}">{{ p }}</a>
+      </li>
+{% endfor %}
+{% if page < page_list[-1] %}
+      <li class="pager__item"><a class="pager__link" href="{{url_for('comic_list', comic_type=comic_type, page=page + 1)}}">></a></li>
+{% endif %}
+    </ul>
+  </nav>
+</footer>
+</body>
+</html>

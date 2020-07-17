@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{ comic['title'] }}</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/detail.css') }}"/>
+</head>
+<body>
+
+<div id="info">
+  <img src="{{ url_for('thumbnail', comic_type=comic_type, id=comic['id']) }}"/>
+  <h1>{{ comic['title'] }}</h1>
+</div>
+
+<ul id="episodes">
+{%for episode in episodes%}
+<li class="episode">
+  <a href="{{ url_for('view_cartoon', comic_type=comic_type, id=comic['id'], episode=episode[0]) }}">
+    {{ episode[1] }}
+  </a>
+</li>
+{%endfor%}
+</ul>
+</body>
+</html>

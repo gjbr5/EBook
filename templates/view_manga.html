@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{id}}</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css') }}"/>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='lightgallery/css/lightgallery.css') }}"/>
+  <script type="text/javascript" src="{{ url_for('static',filename='lightgallery/js/lightgallery.min.js') }}"></script>
+</head>
+<body>
+  <div id="content">
+{%for img in imgs%}
+    <a href="{{ url_for('comic_img', comic_type='manga', id=id, img_name=img) }}">
+        <img src="{{ url_for('comic_img', comic_type='manga', id=id, img_name=img) }}" class="content-img"/>
+    </a>
+{%endfor%}
+  </div>
+<script>lightGallery(document.getElementById('content'), {hideBarsDelay:1000, download:false});</script>
+</body>
+</html>
